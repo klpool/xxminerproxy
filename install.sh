@@ -1,9 +1,9 @@
 #bin
 version='7.0.1.0.1'
-uiname = 'xxminerproxy-ui'
-pkgname = 'xxminerproxy'
-authorname = 'klpool'
-installname = 'install.sh'
+uiname='xxminerproxy-ui'
+pkgname='xxminerproxy'
+authorname='klpool'
+installname='install.sh'
 shell_version='3.0.0'
 red='\033[0;31m'
 green='\033[0;32m'
