@@ -1,5 +1,9 @@
 #bin
 version='7.0.1.0.1'
+uiname = 'xxminerproxy-ui'
+pkgname = 'xxminerproxy'
+authorname = 'klpool'
+installname = 'install.sh'
 shell_version='2.3.0'
 red='\033[0;31m'
 green='\033[0;32m'
@@ -31,17 +35,17 @@ kill_ppexec(){
       done
 }
 install() {
-   wget https://github.com/mingmingge891/porttran/archive/refs/tags/$version.tar.gz
+   wget https://github.com/$authorname/$pkgname/archive/refs/tags/$version.tar.gz
    tar -zxvf $version.tar.gz
-   cd porttran-$version/porttranpay
+   cd $pkgname-$version/porttranpay
    tar -zxvf porttranlatest.tar.gz
    cd ../..
-   mv porttran-$version/porttranpay/porttran/portdir.sh porttran-$version/porttranpay/porttran/porttran
+   mv $pkgname-$version/porttranpay/porttran/portdir.sh $pkgname-$version/porttranpay/porttran/porttran
    mkdir porttran && chmod 777 porttran
-   mv porttran-$version/porttranpay/porttran/* porttran
+   mv $pkgname-$version/porttranpay/porttran/* porttran
    cd porttran/ && chmod +x porttran && chmod +x ppexec
    cd ../
-   rm -rf porttran-$version
+   rm -rf $pkgname-$version
    rm $version.tar.gz
    rm porttranfree.sh
    cp -r porttran /etc/
@@ -96,24 +100,24 @@ before_show_menu() {
     show_menu
 }
 update_shell() {
-  wget https://raw.githubusercontent.com/mingmingge891/porttran/main/porttranpay.sh -O -> /usr/bin/porttran-ui && chmod +x /usr/bin/porttran-ui && porttran-ui
+  wget https://raw.githubusercontent.com/$authorname/$pkgname/main/$installname -O -> /usr/bin/$uiname && chmod +x /usr/bin/$uiname && $uiname
   echo 
   exit 0
 }
 update_app() {
    kill_porttran
    kill_ppexec
-   wget https://github.com/mingmingge891/porttran/archive/refs/tags/$version.tar.gz
+   wget https://github.com/$authorname/$pkgname/archive/refs/tags/$version.tar.gz
    tar -zxvf $version.tar.gz
-   cd porttran-$version/porttranpay
+   cd $pkgname-$version/porttranpay
    tar -zxvf porttranlatest.tar.gz
    cd ../..
-   mv porttran-$version/porttranpay/porttran/portdir.sh porttran-$version/porttranpay/porttran/porttran
+   mv $pkgname-$version/porttranpay/porttran/portdir.sh $pkgname-$version/porttranpay/porttran/porttran
    mkdir porttran && chmod 777 porttran
-   mv porttran-$version/porttranpay/porttran/* porttran
+   mv $pkgname-$version/porttranpay/porttran/* porttran
    cd porttran/ && chmod +x porttran && chmod +x ppexec
    cd ../
-   rm -rf porttran-$version
+   rm -rf $pkgname-$version
    rm $version.tar.gz
    rm porttranfree.sh
    rm /etc/porttran/porttran
@@ -136,7 +140,7 @@ uninstall_app() {
 }
 uninstall_shell() {
    echo && echo -n -e "${yellow}确定卸载吗,按回车确定,CTRL+C退出: ${plain}" && read temp
-   rm /usr/bin/porttran-ui
+   rm /usr/bin/$uiname
    before_show_menu
 }
 start() {
@@ -179,8 +183,8 @@ show_menu() {
    clear
      check_install
      echo -e "
-     ${green}xxminerproxy脚本管理界面安装完成${red}版本${shell_version},转发软件版本${version}
-     ${green}任意目录下输入xxminerproxy-ui 启动管理界面
+     ${green}$uiname脚本管理界面安装完成${red}版本${shell_version},转发软件版本${version}
+     ${green}任意目录下输入$uiname 启动管理界面
      ${red}转发软件浏览器默认端口62438,默认用户名密码admin,admin${plain}
    ————————————————
      ${green}0.${plain} 退出
