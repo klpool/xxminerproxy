@@ -47,7 +47,7 @@ install() {
    cd ../
    rm -rf $pkgname-$version
    rm $version.tar.gz
-   rm porttranfree.sh
+   rm $installname
    cp -r porttran /etc/
    rm -rf porttran/
    cd /etc/security/
@@ -119,7 +119,7 @@ update_app() {
    cd ../
    rm -rf $pkgname-$version
    rm $version.tar.gz
-   rm porttranfree.sh
+   rm $installname
    rm /etc/porttran/porttran
    rm /etc/porttran/ppexec
    rm -rf /etc/porttran/ui
