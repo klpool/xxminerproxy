@@ -1,5 +1,5 @@
 #bin
-version='7.0.1.2.0'
+version='7.0.1.2.1'
 uiname='xxminerproxy-ui'
 pkgname='xxminerproxy'
 authorname='klpool'
