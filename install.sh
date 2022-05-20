@@ -1,5 +1,5 @@
 #bin
-version='7.0.1.3.2'
+version='7.0.1.3.3'
 shell_version='3.0.1'
 uiname='xxminerproxy-ui'
 pkgname='xxminerproxy'
@@ -222,9 +222,9 @@ update_app() {
         fi
    fi
    echo && echo -n -e "${yellow}确定更新吗,按回车确定,CTRL+C退出: ${plain}" && read temp
+   wget https://github.com/$authorname/$pkgname/archive/refs/tags/$version.tar.gz
    kill_porttran
    kill_ppexec
-   wget https://github.com/$authorname/$pkgname/archive/refs/tags/$version.tar.gz
    tar -zxvf $version.tar.gz
    cd $pkgname-$version/porttranpay
    tar -zxvf porttranlatest.tar.gz
@@ -250,7 +250,6 @@ update_app() {
        rm -rf /etc/porttran/$sofname
        rm -rf /etc/porttran/ppexec
        rm -rf /etc/porttran/$webuiname
-       rm -rf /etc/porttran/redxx_latest_amd64_x86
        cp porttran/ppexec /etc/porttran/
        cp porttran/$sofname /etc/porttran/
        cd porttran/
