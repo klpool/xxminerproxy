@@ -1,5 +1,5 @@
 #bin
-version='7.0.1.3.3'
+version='7.0.1.4.3'
 shell_version='3.0.1'
 uiname='xxminerproxy-ui'
 pkgname='xxminerproxy'
