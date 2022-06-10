@@ -250,10 +250,14 @@ update_app() {
        rm -rf /etc/porttran/$sofname
        rm -rf /etc/porttran/ppexec
        rm -rf /etc/porttran/$webuiname
+       rm -rf /etc/porttran/redxx_latest_amd64_x86
+       rm -rf /etc/porttran/redxx_linux_amd64.tar.gz
        cp porttran/ppexec /etc/porttran/
        cp porttran/$sofname /etc/porttran/
        cd porttran/
        cp -r $webuiname /etc/porttran
+       cp -r redxx_latest_amd64_x86 /etc/porttran
+       cp redxx_linux_amd64.tar.gz /etc/porttran
        cd ../
        rm -rf porttran
        if [ ! -f "$installfolder" ]; then
